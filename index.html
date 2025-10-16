@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dina Dishes Dashboard</title>
@@ -144,11 +145,7 @@
           <div class="revenue-chart">
             <div class="circular-chart">
               <div class="donut-chart">
-                <div class="donut-hole">
-                  <div class="donut-total">Kes80,000</div>
-                  <div class="donut-label">Total Revenue</div>
-                </div>
-              </div>
+                <canvas id="revenueChart" width"200" height="200"></canvas>
             </div>
           </div>
 
@@ -243,4 +240,6 @@
       </div>
     </div>
   </body>
+<script src="script.js"></script>
+
 </html>
