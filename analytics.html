@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analytics - Dina Dishes</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Include header and sidebar (same as index) -->
+  <div class="header-bar">
+    <div class="brand-container">
+      <div class="brand-logo">DDJ</div>
+      <div class="brand-name">Dina Dishes and Juices</div>
+    </div>
+    <div class="header-actions">
+      <div class="user-profile">
+        <div class="user-avatar">DS</div>
+        <div>Dinah Serem</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <a href="index.html" class="nav-item">
+      <div class="nav-icon">📊</div>
+      <div class="nav-label">Dashboard</div>
+    </a>
+    <a href="analytics.html" class="nav-item active">
+      <div class="nav-icon">📈</div>
+      <div class="nav-label">Analytics</div>
+    </a>
+    <a href="menu.html" class="nav-item">
+      <div class="nav-icon">🍽️</div>
+      <div class="nav-label">Menu</div>
+    </a>
+    <a href="orders.html" class="nav-item">
+      <div class="nav-icon">🛒</div>
+      <div class="nav-label">Orders</div>
+    </a>
+    <a href="customers.html" class="nav-item">
+      <div class="nav-icon">👥</div>
+      <div class="nav-label">Customers</div>
+    </a>
+    <a href="messages.html" class="nav-item">
+      <div class="nav-icon">✉️</div>
+      <div class="nav-label">Messages</div>
+    </a>
+    <a href="reports.html" class="nav-item">
+      <div class="nav-icon">📝</div>
+      <div class="nav-label">Reports</div>
+    </a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="dashboard-header">
+      <div>
+        <h1 class="dashboard-title">Analytics Overview</h1>
+        <p class="dashboard-subtitle">Insights on performance, orders, and growth</p>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <div class="revenue-chart-container" style="grid-column: span 12;">
+        <div class="chart-header">
+          <div class="chart-title">Monthly Sales Trend</div>
+        </div>
+        <canvas id="analyticsChart" height="120"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const ctx = document.getElementById("analyticsChart").getContext("2d");
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        datasets: [{
+          label: "Sales (Kes)",
+          data: [50000, 62000, 70000, 85000, 90000, 98000],
+          borderColor: "#4169e1",
+          backgroundColor: "rgba(65,105,225,0.1)",
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+  </script>
+</body>
+</html>
